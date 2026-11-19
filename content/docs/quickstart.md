@@ -7,7 +7,7 @@ From nothing to a verified event in about 15 minutes. You need Docker with Compo
 You need [Docker](https://docs.docker.com/get-docker/). Then:
 
 ```sh
-git clone <repository-url> trace
+git clone https://github.com/trace-id/trace.git
 cd trace
 ./setup.sh          # Windows PowerShell: .\setup.ps1
 ```

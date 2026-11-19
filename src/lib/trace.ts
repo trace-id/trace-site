@@ -14,4 +14,8 @@ export function demoConfigured(): boolean {
   return Boolean(c.endpoint && c.publicKey.startsWith('pk_') && c.secretKey.startsWith('sk_'));
 }
 
-export const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL ?? 'https://github.com';
+/** Project links. The repository and npm links can be overridden per deployment; the rest are fixed. */
+export const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL ?? 'https://github.com/trace-id/trace';
+export const GITHUB_ORG_URL = 'https://github.com/trace-id';
+export const NPM_URL = process.env.NEXT_PUBLIC_NPM_URL ?? 'https://www.npmjs.com/org/trace-id';
+export const PYPI_URL = 'https://pypi.org/project/trace-device/';

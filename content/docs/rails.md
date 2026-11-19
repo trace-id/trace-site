@@ -2,9 +2,9 @@
 
 This quickstart verifies Trace events in a Rails (or any Rack) app with the `trace-device` gem. It uses only the standard library.
 
-> [!WARNING]
-> **Draft SDK**
-> This SDK was written without a Ruby toolchain available, so it has not been run yet. Its tests run in CI and must pass before you rely on it.
+> [!NOTE]
+> **Tested in CI**
+> Passes its tests on Ruby 3.3, against the same test vectors as the other SDKs. It has not yet been used in a production Rails app, so start the guard in shadow mode.
 
 > [!NOTE]
 > **Before you start**

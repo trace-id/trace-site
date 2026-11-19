@@ -68,7 +68,7 @@ function preprocess(md: string): string {
   return out;
 }
 
-const REPO = (process.env.NEXT_PUBLIC_GITHUB_URL ?? 'https://github.com').replace(/\/+$/, '');
+const REPO = (process.env.NEXT_PUBLIC_GITHUB_URL ?? 'https://github.com/trace-id/trace').replace(/\/+$/, '');
 
 /** Links between pages: /signals#x and signals.md#x both become /docs/signals#x; links into the repo go to GitHub. */
 export function rewriteHref(href: string): string {

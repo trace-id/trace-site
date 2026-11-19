@@ -3,8 +3,8 @@
 This quickstart adds Trace to a native iOS app with the `TraceDevice` Swift package. You allow your app on a public key, identify the device before a sensitive action, and send the `eventId` to your backend for verification.
 
 > [!WARNING]
-> **Draft SDK**
-> This package was written without a Mac, so it has not been compiled or run yet. Its tests (payload and hash parity with the TypeScript SDK, and the client against a stubbed network) run in CI on macOS and must pass before you rely on it.
+> **Partly verified**
+> The core (payload, hashes and the identify call) passes its tests in CI on macOS: payload and hash parity with the TypeScript SDK, and the client against a stubbed network. The UIKit code that reads the device and stores the token in the Keychain only compiles for iOS, so CI does not build it and it is untested on a device. Try it in your app first.
 
 > [!NOTE]
 > **Before you start**

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE_URL } from '@/lib/site';
-import { GITHUB_URL } from '@/lib/trace';
+import { GITHUB_ORG_URL, GITHUB_URL, NPM_URL } from '@/lib/trace';
 
 export const SITE_NAME = 'Trace';
 export const SITE_TAGLINE = 'Open-source device identification you run yourself';
@@ -63,7 +63,7 @@ export function organizationLd(): Record<string, unknown> {
     url: SITE_URL,
     logo: absoluteUrl('/icon.svg'),
     description: SITE_DESCRIPTION,
-    ...(repo ? { sameAs: [repo] } : {}),
+    ...(repo ? { sameAs: [repo, GITHUB_ORG_URL, NPM_URL] } : {}),
   };
 }
 

@@ -2,9 +2,9 @@
 
 This quickstart verifies Trace events in an ASP.NET Core app with the `TraceDevice` and `TraceDevice.AspNetCore` NuGet packages. They have no third-party dependencies.
 
-> [!WARNING]
-> **Draft SDK**
-> This SDK was written without a .NET SDK toolchain available, so it has not been run yet. Its tests run in CI and must pass before you rely on it.
+> [!NOTE]
+> **Tested in CI**
+> Builds and passes its tests on .NET 8, against the same test vectors as the other SDKs. It has not yet been used in a production app, so start the guard in shadow mode.
 
 > [!NOTE]
 > **Before you start**

@@ -8,6 +8,7 @@ import { DOC_PAGES, DOC_TABS, OSS_SLUGS, docHref, renderDoc } from '@/lib/docs';
 import { CATEGORIES, loadSignalCatalog } from '@/lib/signal-catalog';
 import { USE_CASES } from '@/lib/use-cases';
 import { JsonLd, articleLd, breadcrumbLd, pageMetadata } from '@/lib/seo';
+import { SITE_URL } from '@/lib/site';
 import { GITHUB_URL } from '@/lib/trace';
 
 type Params = { slug: string[] };
@@ -55,7 +56,15 @@ export default async function DocPage({ params }: { params: Promise<Params> }) {
   const prev = inTab[i - 1];
   const next = inTab[i + 1];
   const tab = DOC_TABS.find((t) => t.id === page.tab)!;
-  const editUrl = OSS_SLUGS.has(page.slug) && GITHUB_URL !== 'https://github.com' ? `${GITHUB_URL.replace(/\/+$/, '')}/blob/main/docs/${page.slug}.md` : null;
+  // Reference pages live in the public repository and can be edited there. The rest are written in the website's own
+  // (private) source, so those link to a prefilled documentation issue in the public repository instead.
+  const repo = GITHUB_URL.replace(/\/+$/, '');
+  const repoReady = repo !== 'https://github.com';
+  const editUrl = repoReady && OSS_SLUGS.has(page.slug) ? `${repo}/blob/main/docs/${page.slug}.md` : null;
+  const suggestUrl =
+    repoReady && !editUrl
+      ? `${repo}/issues/new?template=docs.yml&title=${encodeURIComponent(`Docs: ${page.title}`)}&page=${encodeURIComponent(`${SITE_URL}/docs/${page.slug}`)}`
+      : null;
 
   return (
     <div className="docs-page">
@@ -91,6 +100,15 @@ export default async function DocPage({ params }: { params: Promise<Params> }) {
         )}
         <article className="prose" dangerouslySetInnerHTML={{ __html: doc.html }} />
         <CodeCopy />
+        {(editUrl || suggestUrl) && (
+          <div className="doc-foot">
+            <a href={(editUrl ?? suggestUrl)!} target="_blank" rel="noopener noreferrer">
+              <SquarePen size={15} aria-hidden="true" />
+              {editUrl ? 'Edit this page on GitHub' : 'Suggest an edit'}
+            </a>
+            <p>{editUrl ? 'This page is in the public repository: fix it and send a pull request.' : 'Spotted something wrong or unclear? Tell us on GitHub and we will fix it.'}</p>
+          </div>
+        )}
         <nav className="pager" aria-label="Pages">
           {prev ? (
             <Link href={docHref(prev.slug)}>
@@ -108,10 +126,10 @@ export default async function DocPage({ params }: { params: Promise<Params> }) {
       </main>
       <aside className="toc" aria-label="Page tools">
         <Toc headings={headings} />
-        {editUrl && (
-          <a className="toc-edit" href={editUrl} target="_blank" rel="noopener noreferrer">
+        {(editUrl || suggestUrl) && (
+          <a className="toc-edit" href={(editUrl ?? suggestUrl)!} target="_blank" rel="noopener noreferrer">
             <SquarePen size={14} aria-hidden="true" />
-            Edit on GitHub
+            {editUrl ? 'Edit on GitHub' : 'Suggest an edit'}
           </a>
         )}
       </aside>

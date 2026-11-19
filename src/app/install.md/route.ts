@@ -20,7 +20,7 @@ Full docs for language models: ${site}/llms-full.txt
 If there is no server yet, tell the user to run one first:
 
 \`\`\`sh
-git clone <trace repository> trace && cd trace && ./setup.sh
+git clone https://github.com/trace-id/trace.git && cd trace && ./setup.sh
 \`\`\`
 
 then create a project and keys in the dashboard (http://localhost:3000) and add this app's origin to the public key.
@@ -41,7 +41,7 @@ Pick the package for the app's framework:
 | Angular 17+ | \`@trace-id/sdk-angular\` | \`provideTrace(options)\`, \`injectVisitorData()\` (signals) |
 | Solid | \`@trace-id/sdk-solid\` | \`<IdentifyProvider>\`, \`createVisitorData()\` (signals) |
 | Kotlin / Android | \`dev.trace.device\` | \`createTraceClient(context, apiKey, endpoint)\`, then \`trace.get()\` (blocking; call off the main thread) |
-| Swift / iOS (draft) | \`TraceDevice\` | \`makeTraceClient(apiKey:endpoint:)\`, then \`try await trace.get()\` |
+| Swift / iOS | \`TraceDevice\` | \`makeTraceClient(apiKey:endpoint:)\`, then \`try await trace.get()\` |
 | Flutter | \`trace_device\` (Dart) | \`createTraceClient(...)\`, then \`await trace.get()\` (Android and iOS) |
 | Svelte | \`@trace-id/sdk-svelte\` | \`createVisitorData(options)\` |
 

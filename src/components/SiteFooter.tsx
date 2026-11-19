@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { NPM_URL } from '@/lib/trace';
 import { Lockup } from './Logo';
 import { CopyButton } from './ui';
 import { ToastCopy } from './landing/controls';
@@ -53,6 +54,12 @@ export function SiteFooter({ githubUrl }: { githubUrl: string }) {
             <h2 id="sf-project" className="mono-label">Project</h2>
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
               GitHub <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+            <a href={NPM_URL} target="_blank" rel="noopener noreferrer">
+              npm <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+            <a href={`${githubUrl.replace(/\/+$/, '')}/releases`} target="_blank" rel="noopener noreferrer">
+              Releases <ArrowUpRight size={13} aria-hidden="true" />
             </a>
             <Link href="/docs/self-hosting">Self-hosting</Link>
             <Link href="/docs/configuration">Configuration</Link>

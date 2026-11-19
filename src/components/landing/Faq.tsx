@@ -41,7 +41,7 @@ export const FAQ: { q: string; a: string; link?: { href: string; label: string }
   },
   {
     q: 'Which languages and frameworks are supported?',
-    a: 'In the browser: JavaScript, React, Next.js, Vue, Svelte, Angular and Solid, plus React Native, Expo, Flutter and native Kotlin (Android) and Swift (iOS, a draft) for apps. On the server: Node.js, Python, PHP, Java and Go SDKs, guards for Express, Fastify, Django, Flask, FastAPI and Laravel, and a WordPress and WooCommerce plugin. Ruby and .NET SDKs exist as drafts that are not yet tested. Anything else can call the REST API.',
+    a: 'In the browser: JavaScript, React, Next.js, Vue, Svelte, Angular and Solid, plus React Native, Expo, Flutter and native Kotlin (Android) and Swift (iOS) for apps. On the server: Node.js, Python, PHP, Java and Go SDKs, guards for Express, Fastify, Django, Flask, FastAPI and Laravel, and a WordPress and WooCommerce plugin. Ruby and .NET SDKs are tested in CI but newer than the rest. Anything else can call the REST API.',
     link: { href: '/docs/integration', label: 'All SDKs' },
   },
   {

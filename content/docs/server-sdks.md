@@ -8,8 +8,8 @@ Every server SDK does the same three things: **verify an event** by id, **verify
 | Python 3.9+ | `trace-device` (import `trace_device`) | `pip install trace-device` |
 | PHP 8.1+ | `trace/trace` | `composer require trace/trace` |
 | Java 11+ | `dev.trace:trace` | Maven or Gradle |
-| Ruby 3.0+ (draft) | `trace-device` (require `trace`) | `gem install trace-device` |
-| .NET 8 (draft) | `TraceDevice` | `dotnet add package TraceDevice` |
+| Ruby 3.0+ | `trace-device` (require `trace`) | `gem install trace-device` |
+| .NET 8 | `TraceDevice` | `dotnet add package TraceDevice` |
 | Go 1.21+ | `github.com/trace-id/trace/sdks/go` (package `trace`) | `go get github.com/trace-id/trace/sdks/go` |
 | Anything else | REST | `GET /v1/events/:eventId` with `Authorization: Bearer sk_...` |
 

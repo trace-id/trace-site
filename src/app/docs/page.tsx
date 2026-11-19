@@ -1,4 +1,4 @@
-import { ArrowRight, Braces, FileText, Fingerprint, Github, type LucideIcon, Plug, Radar, Server, ServerCog, SlidersHorizontal } from 'lucide-react';
+import { ArrowRight, Braces, FileText, Fingerprint, Github, type LucideIcon, Plug, Radar, Server, ServerCog, SlidersHorizontal, Package } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -9,7 +9,7 @@ import { UcIcon } from '@/components/use-cases/UcIcon';
 import { Badge, Button, IconTile } from '@/components/ui';
 import { docHref } from '@/lib/docs-nav';
 import { JsonLd, breadcrumbLd, pageMetadata } from '@/lib/seo';
-import { GITHUB_URL } from '@/lib/trace';
+import { GITHUB_URL, NPM_URL } from '@/lib/trace';
 import { USE_CASES, guideSlug } from '@/lib/use-cases';
 
 export const metadata: Metadata = pageMetadata({
@@ -109,6 +109,7 @@ const AI: Item[] = [
   { name: 'llms.txt', Icon: FileText, href: '/llms.txt', text: 'An index of every page.' },
   { name: 'install.md', Icon: FileText, href: '/install.md', text: 'Step-by-step guide for agents.' },
   { name: 'GitHub', Icon: Github, href: GITHUB_URL, text: 'Source, issues and releases.' },
+  { name: 'npm', Icon: Package, href: NPM_URL, text: 'The @trace-id packages.' },
 ];
 
 const isExternal = (href: string) => /^(https?:)?\/\//.test(href) || /\.(txt|md|json)$/.test(href);
