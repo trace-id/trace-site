@@ -2,7 +2,8 @@
   "name": "trace-site",
   "version": "0.1.0",
   "private": true,
-  "description": "Trace website: landing page, docs and live demo. Private; not part of the open-source repository.",
+  "license": "MIT",
+  "description": "Trace website: landing page, docs and live demo.",
   "type": "module",
   "scripts": {
     "dev": "node scripts/next.mjs dev -p 3100",
