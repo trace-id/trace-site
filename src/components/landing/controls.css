@@ -1,0 +1,31 @@
+/* Shared controls: toggle-group chips, switch rows. Flat, 1px lines, 13px text, cobalt accent. Unlayered, so it wins over the shadcn utilities. */
+.ft { display: flex; flex-wrap: wrap; width: auto; gap: 6px; }
+.ft .ft-item { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: 0 0 auto; width: auto; min-width: 0; height: 28px; padding: 0 11px; border: 1px solid var(--tr-line); border-radius: var(--tr-r-sm); background: var(--tr-surface); color: var(--tr-ink-2); box-shadow: none; font: 500 13px/1 var(--tr-font); white-space: nowrap; cursor: pointer; transition: background 150ms var(--tr-ease-out), border-color 150ms var(--tr-ease-out), color 150ms var(--tr-ease-out); }
+.ft .ft-item:hover { border-color: var(--tr-line-strong); color: var(--tr-ink); background: var(--tr-surface); }
+.ft .ft-item:active { background: var(--tr-bg-2); }
+.ft .ft-item[data-state='on'] { background: var(--tr-accent-tint); border-color: rgb(43 63 214 / 0.35); color: var(--tr-accent-hover); }
+.ft .ft-item:focus-visible { outline: 2px solid var(--tr-accent); outline-offset: 2px; box-shadow: none; z-index: 1; }
+
+.sw-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 32px; padding: 4px 10px; border: 1px solid var(--tr-line); border-radius: var(--tr-r-md); background: var(--tr-surface); cursor: pointer; transition: background 150ms var(--tr-ease-out), border-color 150ms var(--tr-ease-out); }
+.sw-row:hover { border-color: var(--tr-line-strong); }
+.sw-row:active { background: var(--tr-bg); }
+.sw-row[data-on='true'] { background: var(--tr-accent-tint); border-color: rgb(43 63 214 / 0.35); }
+.sw-row:has(.sw:focus-visible) { outline: 2px solid var(--tr-accent); outline-offset: 2px; }
+.sw-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--tr-ink); }
+.sw-name.is-mono { font-family: var(--tr-mono); font-size: 12.5px; }
+.sw-bar { display: none; height: 4px; width: 56px; border-radius: 2px; background: var(--tr-line); overflow: hidden; }
+.sw-bar i { display: block; width: 100%; height: 100%; transform-origin: left; background: var(--tr-ink-3); transition: transform 200ms var(--tr-ease-out); }
+.sw-row[data-on='true'] .sw-bar i { background: var(--tr-accent); }
+.sw-row.has-bar, .sw-row:has(.sw-bar) { grid-template-columns: auto minmax(0, 1fr) 56px auto; }
+.sw-row:has(.sw-bar) .sw-bar { display: block; }
+.sw-w { font: 400 12px var(--tr-mono); font-variant-numeric: tabular-nums; color: var(--tr-ink-2); min-width: 2.6em; text-align: right; }
+
+.sw { position: relative; flex: 0 0 auto; width: 28px; height: 16px; padding: 0; border: 0; border-radius: 8px; background: var(--tr-line-strong); box-shadow: none; cursor: pointer; transition: background 160ms var(--tr-ease-out); }
+.sw[data-state='checked'] { background: var(--tr-accent); }
+.sw:focus-visible { outline: 2px solid var(--tr-accent); outline-offset: 2px; box-shadow: none; }
+.sw > span { display: block; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgb(24 25 22 / 0.2); transform: none; translate: 2px 0; transition: translate 160ms var(--tr-ease-out); }
+.sw[data-state='checked'] > span { translate: 14px 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ft .ft-item, .sw-row, .sw, .sw > span, .sw-bar i { transition: none; }
+}

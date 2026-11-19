@@ -1,0 +1,62 @@
+/* Install with AI: the hero widget and the prompt card + agent run. */
+
+/* Widget */
+.iw { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; }
+.iw-bar { display: flex; align-items: stretch; max-width: 100%; height: 48px; border-radius: var(--tr-r-md); background: var(--tr-surface); border: 1px solid var(--tr-line); box-shadow: var(--tr-shadow-button); overflow: hidden; transition: border-color var(--tr-dur-micro); }
+.iw-bar:hover, .iw-bar:focus-within { border-color: var(--tr-line-strong); }
+.iw-tabs { display: flex; align-items: center; padding: 0 6px; border-right: 1px solid var(--tr-line); flex-shrink: 0; }
+.iw-tabs .ui-seg { background: transparent; border-color: transparent; }
+.iw-copy { display: inline-flex; align-items: center; gap: 14px; padding: 0 10px 0 16px; border: 0; background: transparent; cursor: pointer; color: var(--tr-ink); min-width: 0; }
+.iw-copy:focus-visible { outline: 2px solid var(--tr-accent); outline-offset: -2px; }
+.iw-copy code { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 340px; }
+.iw-icon { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: var(--tr-r-sm); color: var(--tr-ink-3); transition: background var(--tr-dur-micro), color var(--tr-dur-micro); }
+.iw-copy:hover .iw-icon { background: var(--tr-bg-2); color: var(--tr-ink); }
+.iw-copy.done .iw-icon { background: var(--tr-low-tint); color: var(--tr-low); }
+.iw-sub { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 12px; font-size: 13px; color: var(--tr-ink-3); }
+.iw-sub a { color: var(--tr-ink-2); text-decoration: none; }
+.iw-sub a:hover { color: var(--tr-accent); }
+.iw-app { display: inline-flex; align-items: center; gap: 6px; }
+@media (max-width: 640px) {
+  .iw-bar { flex-direction: column; height: auto; width: 100%; }
+  .iw-tabs { border-right: 0; border-bottom: 1px solid var(--tr-line); padding: 6px; justify-content: center; }
+  .iw-copy { height: 44px; justify-content: space-between; }
+  .iw-copy code { max-width: none; }
+}
+
+/* Prompt card */
+.prompt-card { margin-top: 28px; border: 1px solid var(--tr-line); border-radius: var(--tr-r-lg); background: var(--tr-surface); box-shadow: var(--tr-shadow-card); overflow: hidden; }
+.pc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 16px; border-bottom: 1px solid var(--tr-line); font-size: 13.5px; color: var(--tr-ink-2); }
+.pc-head code { font-size: 12.5px; padding: 1px 6px; border-radius: var(--tr-r-sm); background: var(--tr-bg-2); color: var(--tr-ink); }
+.pc-head > [role='tabpanel'] { flex: 1; min-width: 0; outline-offset: 2px; }
+.pc-copy { border: 1px solid var(--tr-line); background: var(--tr-surface); flex-shrink: 0; }
+.prompt-card .ui-tabs { padding: 0 8px; background: var(--tr-bg); border-bottom: 1px solid var(--tr-line); overflow-x: auto; }
+.pc-body { margin: 0; padding: 16px; font-size: 13px; line-height: 1.7; color: var(--tr-ink); }
+.pc-body code { font-size: 13px; }
+.pc-foot { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 10px 16px; border-top: 1px solid var(--tr-line); background: var(--tr-bg); font: 12px var(--tr-mono); }
+.pc-foot a { color: var(--tr-ink-3); text-decoration: none; }
+.pc-foot a:hover { color: var(--tr-accent); }
+
+/* Agent run (dark terminal window) */
+.run { margin: 0; }
+.run .rb-tool { display: inline-flex; align-items: center; gap: 8px; }
+.run .rb-note { font: 400 11px var(--tr-mono); font-style: normal; color: var(--tr-night-muted); }
+.run .ui-win-body { padding: 16px 18px 18px; font: 13px/1.6 var(--tr-mono); position: relative; }
+.run .ask { margin: 0 0 14px; display: flex; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--tr-night-line); color: var(--tr-night-text); min-height: 5.6em; }
+.run .ask b { font-weight: 400; overflow-wrap: anywhere; min-width: 0; }
+.run ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
+.run li { display: flex; align-items: baseline; gap: 10px; color: var(--tr-night-muted); }
+.run li .t { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.run li .d { color: var(--tr-night-muted); font-size: 12px; white-space: nowrap; }
+.run li.code { padding-left: 22px; color: var(--tr-night-text); }
+.run li.done { margin-top: 8px; color: var(--tr-night-text); }
+.run .g { width: 12px; flex-shrink: 0; text-align: center; }
+.run .g.ok, .run .g.pass { color: var(--tr-low-night); }
+.run .g.done { color: var(--tr-signal); }
+.run .g.you { color: var(--tr-night-muted); }
+.run .g.edit { color: var(--tr-med-night); }
+.run .replay { position: absolute; right: 14px; bottom: 12px; border: 1px solid var(--tr-night-line-2); background: transparent; color: var(--tr-night-muted); border-radius: var(--tr-r-sm); font: 11px var(--tr-mono); padding: 4px 8px; cursor: pointer; transition: color var(--tr-dur-micro), border-color var(--tr-dur-micro); }
+.run .replay:hover { color: var(--tr-night-text); border-color: var(--tr-night-muted); }
+.run .replay:focus-visible { outline: 2px solid var(--tr-night-text); outline-offset: 2px; }
+@media (max-width: 520px) { .run li .d { display: none; } }
+.prompt-card { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
+.fs-text > *, .fs-copy > * { max-width: 100%; }

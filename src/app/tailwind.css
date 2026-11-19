@@ -1,0 +1,55 @@
+/* Tailwind for shadcn components only. No preflight (reset): the site's own CSS stays in charge.
+   Unlayered site CSS always wins over these layered utilities. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* shadcn semantic colours mapped onto the Trace tokens (light only). */
+:root {
+  --background: var(--tr-bg);
+  --foreground: var(--tr-ink);
+  --card: var(--tr-surface);
+  --card-foreground: var(--tr-ink);
+  --popover: var(--tr-surface);
+  --popover-foreground: var(--tr-ink);
+  --primary: var(--tr-accent);
+  --primary-foreground: #ffffff;
+  --secondary: var(--tr-bg-2);
+  --secondary-foreground: var(--tr-ink);
+  --muted: var(--tr-bg-2);
+  --muted-foreground: var(--tr-ink-3);
+  --accent: var(--tr-accent-tint);
+  --accent-foreground: var(--tr-accent);
+  --destructive: var(--tr-high);
+  --border: var(--tr-line);
+  --input: var(--tr-line);
+  --ring: var(--tr-accent);
+  --radius: 8px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}

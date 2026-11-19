@@ -1,0 +1,51 @@
+/* The whole stack: compact light cards in a dashed grid. */
+.bx-head { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: clamp(40px, 6vw, 80px) var(--tr-pad) clamp(28px, 4vw, 44px); }
+.bx-head .h-section { max-width: 18ch; text-wrap: balance; }
+.bx-head .lede { max-width: 620px; text-wrap: pretty; }
+.bx-grid { border-top: 1px dashed var(--tr-line-dashed); }
+.bx-grid > * { padding: 0; }
+
+.bx { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: clamp(18px, 2vw, 24px); color: inherit; text-decoration: none; background: transparent; transition: background 150ms var(--tr-ease-out); }
+.bx:hover { background: var(--tr-surface); color: inherit; }
+.bx:focus-visible { outline: 2px solid var(--tr-accent); outline-offset: -2px; }
+.bx:active { background: var(--tr-bg); }
+.bx h3 { text-wrap: balance; }
+.bx p { text-wrap: pretty; }
+.bx-mini { font-variant-numeric: tabular-nums; }
+.bx .ui-icontile { margin-bottom: 6px; }
+.bx h3 { margin: 0; font-size: 16px; letter-spacing: -0.01em; }
+.bx p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--tr-ink-2); }
+.bx-mini { margin-top: auto; padding-top: 10px; }
+.bx-mini > * { background: var(--tr-surface); border: 1px solid var(--tr-line); border-radius: var(--tr-r-md); }
+.bx:hover .bx-mini > * { background: var(--tr-bg); }
+.bx-note { margin: 0; padding: 12px var(--tr-pad) 16px; border-top: 1px dashed var(--tr-line-dashed); font-size: 10.5px; letter-spacing: 0.06em; }
+
+.m-rows, .m-kv { list-style: none; margin: 0; padding: 4px 10px; display: flex; flex-direction: column; font: 400 11.5px/1.4 var(--tr-mono); color: var(--tr-ink-2); }
+.m-rows li, .m-kv li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 5px 0; border-top: 1px dashed var(--tr-line-dashed); min-width: 0; }
+.m-rows li:first-child, .m-kv li:first-child { border-top: 0; }
+.m-rows li > span, .m-kv li > span { display: inline-flex; align-items: center; gap: 6px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.m-rows code, .m-kv code { font-size: 11.5px; color: var(--tr-ink); white-space: nowrap; }
+.m-kv code.t { color: var(--tr-high); }
+.m-rows .sum b { font-weight: 500; color: var(--tr-low); }
+.m-rows .sum.warn b { color: var(--tr-high); }
+.m-rows.svc code { color: var(--tr-low); }
+.m-score { display: flex; flex-direction: column; gap: 0; padding-bottom: 0; }
+.m-score .m-bar { display: flex; gap: 2px; height: 6px; margin: 10px 10px 4px; }
+.m-score .m-bar i { display: block; border-radius: 2px; background: var(--tr-accent); }
+.m-score .m-bar i:nth-child(2) { background: #6f7de6; }
+.m-score .m-bar i:nth-child(3) { background: #a9b2f0; }
+.m-score .m-kv { border: 0; }
+.m-score.m-score > ul { background: transparent; border: 0; }
+.m-table { width: 100%; border-collapse: collapse; font: 400 11.5px/1.4 var(--tr-mono); color: var(--tr-ink-2); }
+.m-table th { font-weight: 400; text-align: left; padding: 6px 10px; color: var(--tr-ink-3); border-bottom: 1px dashed var(--tr-line-dashed); }
+.m-table td { padding: 5px 10px; border-top: 1px dashed var(--tr-line-dashed); }
+.m-table td:first-child { color: var(--tr-ink-3); }
+.m-table td.x { color: var(--tr-high); font-weight: 500; }
+.m-code { margin: 0; padding: 10px 12px; overflow: hidden; font: 400 11.5px/1.65 var(--tr-mono); color: var(--tr-ink-2); white-space: pre; }
+.m-code code { font: inherit; }
+.m-code .c { color: var(--tr-ink-3); }
+.m-code .k { color: var(--tr-accent); }
+.m-code .s { color: var(--tr-med); }
+.m-code .ok { color: var(--tr-low); }
+
+@media (prefers-reduced-motion: reduce) { .bx { transition: none; } }
